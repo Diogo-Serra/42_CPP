@@ -1,8 +1,9 @@
 
-NAME := PhoneBook
+NAME := phonebook
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
-SOURCES := phonebook.cpp
+SOURCES := phonebook.cpp run.cpp main.cpp
+OBJS := $(SOURCES:%.cpp=%.o)
 
 
 all: $(NAME)
@@ -10,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
-$(OBJS): $(SOURCES)
+%.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:

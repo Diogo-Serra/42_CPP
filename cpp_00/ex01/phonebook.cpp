@@ -1,9 +1,17 @@
 
-int main(int argc, char** argv) {
+#include "phonebook.hpp"
 
-    if (argc != 2)
-        return 1;
+PhoneBook::PhoneBook(int i) {
+    this->name = "PhoneBook";
+    id = i;
+}
 
-    
-    return 0
+std::string PhoneBook::getname() {
+    return this->name;
+}
+
+std::ostream& operator<<(std::ostream& os, PhoneBook& phonebook){
+    os << "PhoneBooks name: " << phonebook.getname() << std::endl \
+    << "id: " << phonebook.id << std::endl;
+    return os;
 }
